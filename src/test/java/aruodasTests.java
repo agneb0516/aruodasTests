@@ -1,7 +1,6 @@
+import models.Garage;
 import models.Helper;
-import models.RealEstate;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import models.SearchRE;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,11 +15,32 @@ public class aruodasTests {
 
     @Test
     public void addAdvert() {
-         RealEstate r = new RealEstate ( "Vilnius", "Vilniaus m.", "Antakalnis",
-                "Aido", "Houses to buy",
+         SearchRE r = new SearchRE ( "Vilnius", "Vilniau", "Baj",
+                "Gustai", "Houses to buy",
                 "A residential house with a sauna building is for sale in a very beautiful and quiet place in Vilnius",
-                "300000", "60100000", "agnejascaite@gmail.com");
+                "300000", "60100000", "agnejascaite@gmail.com", "housePhoto.jpg");
         r.fill();
+        r.checkboxes();
+    }
+
+    @Test
+    public void addGarageAdvert(){
+        Garage garage = new Garage(
+                "Vilnius",
+                "Vilniau",
+                "Baj",
+                "Gustai",
+                "Garaziukas",
+                "300000",
+                "60100000",
+                "agnejascaite@gmail.com",
+                "GaragePhoto.jpg",
+                "5",
+                "555555555555",
+                "12",
+                "Stone",
+                "3");
+        garage.fill();
     }
 
 

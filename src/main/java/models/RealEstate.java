@@ -1,9 +1,10 @@
 package models;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class RealEstate {
 
@@ -12,58 +13,102 @@ public class RealEstate {
     public String settlement;
     public String microdistrict;
     public String street;
-    public String objectType;
     public String description;
     public String price;
     public String phone;
     public String email;
 
-    public RealEstate (String region, String settlement, String microdistrict, String street,
-                         String objectType, String description, String price, String phone,
-                         String email) {
-        this.region = region;
-        this.settlement = settlement;
-        this.microdistrict = microdistrict;
-        this.street = street;
-        this.objectType = objectType;
+    public String photoPath;
+
+    public RealEstate(String region, String settlement, String microdistrict, String street,
+                      String description, String price, String phone,
+                      String email, String photoPath) {
+        this.region = region.toLowerCase();
+        this.settlement = settlement.toLowerCase();
+        this.microdistrict = microdistrict.toLowerCase();
+        this.street = street.toLowerCase();
         this.description = description;
         this.price = price;
         this.phone = phone;
         this.email = email;
+        this.photoPath = photoPath;
         this.driver = Helper.driver;
     }
-    public void fill() {
-        selectDropDown("//*[@id=\"newObjectForm\"]/ul/li[3]/span[1]/input[2]", this.region);
-        selectDropDown("//*[@id=\"district\"]/span", this.settlement);
-        selectDropDown("//*[@id=\"quartalField\"]/span[1]/span[2]", this.microdistrict);
-        selectDropDown("//*[@id=\"streetField\"]/span[1]/span[2]", this.street);
-        selectObjectType(this.objectType);
-        driver.findElement(By.name("notes_lt")).sendKeys(this.description);
-        driver.findElement(By.id("priceField")).sendKeys(this.price);
-        driver.findElement(By.name("phone")).sendKeys(this.phone);
-        driver.findElement(By.name("email")).sendKeys(this.email);
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[23]/span/label/span")).click();
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[24]/div/div/div/label/span")).click();
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[25]/span[1]/div/div/label/span")).click();
-        String photo = "housePhoto.jpg";
-        uploadPhoto(photo);
-//        driver.findElement(By.id("submitFormButton")).click();
 
+    public void fill() {
+        setLocation(0, region);
+        setLocation(1, settlement);
+        setLocation(2, microdistrict);
+        setLocation(3, street);
+        description();
+        uploadPhoto(this.photoPath);
+        price();
+        phone();
+        email();
+//        submit();
     }
 
-    public void selectDropDown(String xpath, String value)  {
-        driver.findElement(By.xpath(xpath)).click();
-        Actions actions = new Actions(driver);
-        actions.sendKeys(value).sendKeys(Keys.ENTER).perform();
+    public void setLocation(int pos, String location) {
+        try {
+            WebElement span = driver.findElements(By.className("input-style-dropdown")).get(pos);
+            Thread.sleep(500);
+            span.findElement(By.className("dropdown-input-value-title")).click();
+            WebElement ul = span.findElement(By.className("dropdown-input-values-address"));
+            if (ul.findElements(By.tagName("input")).isEmpty()) {
+                for (WebElement li : ul.findElements(By.tagName("li"))) {
+                    if (li.getText().toLowerCase().contains(location)) {
+                        li.click();
+                        break;
+                    }
+                }
+            } else {
+                int count = ul.findElements(By.tagName("li")).size();
+                ul.findElement(By.tagName("input")).sendKeys(location);
+                while (true) {
+                    List<WebElement> lis = ul.findElements(By.tagName("li"));
+                    if (count != lis.size()) {
+                        lis.get(lis.size() - 1).click();
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
     }
 
     public void selectObjectType(String value) {
         driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[7]/span[1]/span")).click();
         driver.findElement(By.xpath("//li[contains(text(), \"" + value + "\")]")).click();
-
     }
+
+    public void description() {
+        driver.findElement(By.name("notes_lt")).sendKeys(this.description);
+    }
+
     public void uploadPhoto(String photo) {
         String imagePath = "C:\\Users\\eduard.butkevic\\Desktop\\IT\\IdeaProjects\\aruodasTests\\pictures\\" + photo;
         driver.findElement(By.xpath("//*[@id=\"uploadPhotoBtn\"]/input")).sendKeys(imagePath);
+    }
+
+    public void price() {
+        driver.findElement(By.id("priceField")).sendKeys(this.price);
+    }
+
+    public void phone() {
+        driver.findElement(By.name("phone")).sendKeys(this.phone);
+    }
+
+    public void email() {
+        driver.findElement(By.name("email")).sendKeys(this.email);
+    }
+
+    public void checkboxes() {
+        driver.findElement(By.xpath("//label[@for =\"cbdont_show_in_ads\"]/span")).click();
+        driver.findElement(By.xpath("//label[@for =\"cbdont_want_chat\"]/span")).click();
+        driver.findElement(By.xpath("//label[@for =\"cbagree_to_rules\"]/span")).click();
+    }
+
+    public void submit() {
+        driver.findElement(By.id("submitFormButton")).click();
     }
 }
