@@ -50,6 +50,4 @@ public class Garage extends RealEstate{
     public void chooseNumberOfCars(){
         driver.findElement(By.xpath("//div[@data-title = \"" + numberOfCars + "\"]")).click();
     }
-
-
 }

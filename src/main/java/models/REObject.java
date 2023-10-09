@@ -13,13 +13,13 @@ public class REObject extends RealEstate {
 
     @Override
     public void fill(){
-        Helper.driver.get("https://en.aruodas.lt/ideti-skelbima/?obj=10b");
+        Helper.driver.get("https://en.aruodas.lt/ideti-skelbima/?obj=10");
         super.fill();
         selectObjectType(this.objectType);
     }
 
     public void selectObjectType(String value) {
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[7]/span[1]/span")).click();
+        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[7]/span[1]/input[2]")).click();
         driver.findElement(By.xpath("//li[contains(text(), \"" + value + "\")]")).click();
     }
 }
