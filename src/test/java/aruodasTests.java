@@ -1,7 +1,4 @@
-import models.Garage;
-import models.Helper;
-import models.Plot;
-import models.SearchRE;
+import models.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -64,6 +61,28 @@ public class aruodasTests {
         plot.fill();
     }
 
+    @Test
+    public void addPremisesAdvert(){
+        Premises premises = new Premises(
+                "Vilnius",
+                "Vilniau",
+                "Baj",
+                "Gustai",
+                "Spacious premises.",
+                "50000",
+                "60100000",
+                "agnejascaite@gmail.com",
+                "PremisesPhoto.jpg",
+                "5",
+                "55",
+                "1258555566668888",
+                "500",
+                "2",
+                "2020",
+                "Fully equipped",
+                "Office");
+        premises.fill();
+    }
 
     @BeforeClass
     public void beforeClass() {
