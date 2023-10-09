@@ -1,5 +1,6 @@
 import models.Garage;
 import models.Helper;
+import models.Plot;
 import models.SearchRE;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -8,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 import static models.Helper.driver;
 
@@ -30,7 +32,7 @@ public class aruodasTests {
                 "Vilniau",
                 "Baj",
                 "Gustai",
-                "Garaziukas",
+                "Spacious garage.",
                 "300000",
                 "60100000",
                 "agnejascaite@gmail.com",
@@ -41,6 +43,25 @@ public class aruodasTests {
                 "Stone",
                 "3");
         garage.fill();
+    }
+
+    @Test
+    public void addPlotAdvert(){
+        Plot plot = new Plot(
+                "Vilnius",
+                "Vilniau",
+                "Baj",
+                "Gustai",
+                "Spacious area.",
+                "25000",
+                "60100000",
+                "agnejascaite@gmail.com",
+                "PlotPhoto.jpg",
+                "5",
+                "555555555555",
+                "12",
+                "Residential land");
+        plot.fill();
     }
 
 

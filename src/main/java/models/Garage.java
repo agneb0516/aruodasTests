@@ -9,7 +9,8 @@ public class Garage extends RealEstate{
     public String garageType;
     public String numberOfCars;
     public Garage(String region, String settlement, String microdistrict, String street, String description,
-                  String price, String phone, String email, String  photoPath, String garageNumber, String uniqueNumber, String area, String garageType, String numberOfCars) {
+                  String price, String phone, String email, String  photoPath, String garageNumber,
+                  String uniqueNumber, String area, String garageType, String numberOfCars) {
         super(region, settlement, microdistrict, street, description, price, phone, email, photoPath);
         this.garageNumber = garageNumber;
         this.uniqueNumber = uniqueNumber;

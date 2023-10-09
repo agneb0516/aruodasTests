@@ -5,14 +5,15 @@ import org.openqa.selenium.By;
 public class SearchRE extends RealEstate {
     public String objectType;
 
-    public SearchRE(String region, String settlement, String microdistrict, String street, String objectType, String description, String price, String phone, String email, String  photoPath) {
+    public SearchRE(String region, String settlement, String microdistrict, String street, String objectType,
+                    String description, String price, String phone, String email, String  photoPath) {
         super(region, settlement, microdistrict, street, description, price, phone, email, photoPath);
         this.objectType = objectType;
     }
 
     @Override
     public void fill(){
-        Helper.driver.get("https://en.aruodas.lt/ideti-skelbima/?obj=10");
+        Helper.driver.get("https://en.aruodas.lt/ideti-skelbima/?obj=10b");
         super.fill();
         selectObjectType(this.objectType);
     }

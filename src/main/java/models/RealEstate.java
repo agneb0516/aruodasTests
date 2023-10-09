@@ -17,7 +17,6 @@ public class RealEstate {
     public String price;
     public String phone;
     public String email;
-
     public String photoPath;
 
     public RealEstate(String region, String settlement, String microdistrict, String street,
@@ -112,3 +111,5 @@ public class RealEstate {
         driver.findElement(By.id("submitFormButton")).click();
     }
 }
+
+
