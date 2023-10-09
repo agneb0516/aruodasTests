@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa368d3e-877f-4226-a53b-a92566d525a5" name="Changes" comment="added plot project">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Premises.java" afterDir="false" />
+    <list default="true" id="aa368d3e-877f-4226-a53b-a92566d525a5" name="Changes" comment="added premises project">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/ShortTermRent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/SearchRE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/REObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/aruodasTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/aruodasTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,24 +43,12 @@
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eduard.butkevic/Desktop/IT/IdeaProjects/aruodasTests/src/main/java/org/example/Main.java&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.aruodasTests.addPremisesAdvert">
+  <component name="RunManager" selected="TestNG.aruodasTests.addShortTermRentAdvert">
     <configuration name="aruodasTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="aruodasTests" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="aruodasTests" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="aruodasTests.addAdvert" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="aruodasTests" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="aruodasTests" />
-      <option name="METHOD_NAME" value="addAdvert" />
-      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -101,13 +91,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="aruodasTests.addShortTermRentAdvert" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="aruodasTests" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="aruodasTests" />
+      <option name="METHOD_NAME" value="addShortTermRentAdvert" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.aruodasTests.addShortTermRentAdvert" />
         <item itemvalue="TestNG.aruodasTests.addPremisesAdvert" />
         <item itemvalue="TestNG.aruodasTests.addPlotAdvert" />
         <item itemvalue="TestNG.aruodasTests.addGarageAdvert" />
         <item itemvalue="TestNG.aruodasTests" />
-        <item itemvalue="TestNG.aruodasTests.addAdvert" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +157,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1696845873609</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="added premises project">
+      <option name="closed" value="true" />
+      <created>1696848644520</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1696848644520</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -163,6 +172,7 @@
     <MESSAGE value="aruodasTests project plius garageAdvert" />
     <MESSAGE value="added garage img" />
     <MESSAGE value="added plot project" />
-    <option name="LAST_COMMIT_MESSAGE" value="added plot project" />
+    <MESSAGE value="added premises project" />
+    <option name="LAST_COMMIT_MESSAGE" value="added premises project" />
   </component>
 </project>

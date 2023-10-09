@@ -2,10 +2,10 @@ package models;
 
 import org.openqa.selenium.By;
 
-public class SearchRE extends RealEstate {
+public class REObject extends RealEstate {
     public String objectType;
 
-    public SearchRE(String region, String settlement, String microdistrict, String street, String objectType,
+    public REObject(String region, String settlement, String microdistrict, String street, String objectType,
                     String description, String price, String phone, String email, String  photoPath) {
         super(region, settlement, microdistrict, street, description, price, phone, email, photoPath);
         this.objectType = objectType;

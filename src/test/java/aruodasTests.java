@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.Arrays;
 
 import static models.Helper.driver;
 
@@ -14,16 +13,23 @@ public class aruodasTests {
 
     @Test
     public void addAdvert() {
-         SearchRE r = new SearchRE ( "Vilnius", "Vilniau", "Baj",
-                "Gustai", "Houses to buy",
+        REObject r = new REObject(
+                "Vilnius",
+                "Vilniau",
+                "Baj",
+                "Gustai",
+                "Houses to buy",
                 "A residential house with a sauna building is for sale in a very beautiful and quiet place in Vilnius",
-                "300000", "60100000", "agnejascaite@gmail.com", "housePhoto.jpg");
+                "300000",
+                "60100000",
+                "agnejascaite@gmail.com",
+                "housePhoto.jpg");
         r.fill();
         r.checkboxes();
     }
 
     @Test
-    public void addGarageAdvert(){
+    public void addGarageAdvert() {
         Garage garage = new Garage(
                 "Vilnius",
                 "Vilniau",
@@ -43,7 +49,7 @@ public class aruodasTests {
     }
 
     @Test
-    public void addPlotAdvert(){
+    public void addPlotAdvert() {
         Plot plot = new Plot(
                 "Vilnius",
                 "Vilniau",
@@ -62,7 +68,7 @@ public class aruodasTests {
     }
 
     @Test
-    public void addPremisesAdvert(){
+    public void addPremisesAdvert() {
         Premises premises = new Premises(
                 "Vilnius",
                 "Vilniau",
@@ -82,6 +88,28 @@ public class aruodasTests {
                 "Fully equipped",
                 "Office");
         premises.fill();
+    }
+
+    @Test
+    public void addShortTermRentAdvert() {
+        ShortTermRent rent = new ShortTermRent(
+                "Vilnius",
+                "Vilniau",
+                "Baj",
+                "Luk",
+                "Short term rent.",
+                "600",
+                "68900000",
+                "agnejsaite@gmail.com",
+                "ShortTermRent.jpg",
+                "2",
+                "80",
+                "Rooms",
+                "",
+                "4",
+                "2",
+                "Pet friendly");
+        rent.fill();
     }
 
     @BeforeClass
